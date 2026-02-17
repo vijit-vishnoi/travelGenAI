@@ -10,8 +10,11 @@ function App() {
   const [days, setDays] = useState(1);
   const [loading, setLoading] = useState(false);
   const [itinerary, setItinerary] = useState<Itinerary | null>(null);
+  const [month, setMonth] = useState('Anytime');
+  const [budget, setBudget] = useState('Medium');
+  const [interests, setInterests] = useState<string[]>([]);
+  const [travelers, setTravelers] = useState('Couple');
   const [error, setError] = useState('');
-
   const handleGenerate = async () => {
     if (!destination) return;
     setLoading(true);
@@ -20,7 +23,11 @@ function App() {
     try {
       const response = await axios.post('http://localhost:4000/api/generate', {
         destination: destination,
-        days: parseInt(days.toString())
+        days: parseInt(days.toString()),
+        month,
+        budget,
+        interests,
+        travelers
       });
       setItinerary(response.data);
     } catch (err) {
@@ -66,8 +73,7 @@ function App() {
             onChange={(e) => setDays(parseInt(e.target.value))}
             />
         </div>
-        <button onClick={handleGenerate} disabled={loading}>
-          {loading ? 'Thinking...' : 'Go'}
+        <button onClick={handleGenerate} disabled={loading}>Go
         </button>
       </div>
       </div>
