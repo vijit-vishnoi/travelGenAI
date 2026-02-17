@@ -1,42 +1,240 @@
-#root {
-  max-width: 1280px;
+:root {
+  --primary: #4f46e5;     
+  --primary-dark: #4338ca; 
+  --accent: #ec4899;       
+  --bg: #f8fafc;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+html, body, #root {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg);
+  background-image: radial-gradient(#e0e7ff 1px, transparent 1px);
+  background-size: 24px 24px;
+  font-family: 'Inter', sans-serif;
+  color: var(--text-main);
+}
+
+.app-container {
+  width: 100%;
+  min-height: 100vh;
+  padding: 60px 20px;
+  box-sizing: border-box;
+  display: block; 
+  max-width: 900px;
   margin: 0 auto;
-  padding: 2rem;
+  transition: all 0.4s ease-in-out;
+}
+
+.centered-mode {
+  display: grid !important;
+  place-items: center;
+  align-content: center;
+  max-width: 100% !important;
+  height: 100vh;
+  padding: 0 20px;
+}
+
+.center-stack {
+  width: 100%;
+  max-width: 550px; 
+}
+
+.hero {
   text-align: center;
+  margin-bottom: 40px;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 12px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.logo-icon-bg {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.4);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.plane-overlay {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.2));
 }
 
-.card {
-  padding: 2em;
+.hero h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: -0.03em;
+  color: #1e293b;
 }
 
-.read-the-docs {
-  color: #888;
+.highlight {
+  background: linear-gradient(to right, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
+
+.subtitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.sparkle-icon { color: var(--accent); }
+
+.search-box {
+  background: white;
+  padding: 8px;
+  border-radius: 16px;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  gap: 8px;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  flex-wrap: wrap;
+}
+
+input {
+  background-color: #f1f5f9;
+  border: 2px solid transparent;
+  padding: 14px 18px;
+  border-radius: 10px;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.2s;
+  font-weight: 500;
+  color: #334155;
+}
+
+input::placeholder { color: #94a3b8; font-weight: 400; }
+
+input:focus {
+  background-color: white;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+}
+
+input[type="text"] { flex-grow: 1; min-width: 200px; }
+
+.days-input-group {
+  display: flex;
+  align-items: center;
+  background: #f1f5f9;
+  border-radius: 10px;
+  padding: 0 12px;
+  gap: 8px;
+}
+
+.days-input-group label { color: #64748b; font-size: 0.9rem; font-weight: 600; }
+.days-input-group input { width: 50px; padding: 14px 5px; background: transparent; text-align: center; }
+
+button {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  border: none;
+  padding: 0 32px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.3);
+}
+
+button:hover { transform: translateY(-1px); box-shadow: 0 6px 12px -2px rgba(79, 70, 229, 0.4); }
+button:active { transform: translateY(0); }
+button:disabled { opacity: 0.7; filter: grayscale(1); cursor: not-allowed; }
+
+.loading-state { text-align: center; margin-top: 40px; }
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e2e8f0;
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.8s ease-in-out infinite;
+  margin: 0 auto 20px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.result-fade-in {
+  width: 100%;
+  animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes slideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+
+.trip-title { font-size: 2rem; margin-bottom: 10px; color: #1e293b; }
+.trip-meta { display: flex; gap: 20px; color: #64748b; margin-bottom: 30px; font-weight: 500; font-size: 0.95rem; }
+
+.days-grid { display: grid; gap: 24px; }
+
+.day-card {
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);
+  border-left: 6px solid var(--primary);
+}
+
+.day-header { margin-top: 0; color: var(--primary); font-size: 1.4rem; }
+
+.activity-item {
+  margin-bottom: 24px;
+  padding-left: 20px;
+  border-left: 2px solid #f1f5f9;
+  position: relative;
+}
+
+.activity-item:last-child { margin-bottom: 0; }
+
+.activity-item::before {
+  content: '';
+  position: absolute;
+  left: -6px;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  background: #cbd5e1;
+  border-radius: 50%;
+}
+
+.time-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #eff6ff;
+  color: #2563eb;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.activity-title { margin: 8px 0; font-size: 1.15rem; font-weight: 600; }
+.activity-desc { color: #475569; line-height: 1.5; margin: 0 0 8px 0; }
+.location-tag { color: #64748b; font-size: 0.9rem; display: flex; align-items: center; gap: 5px; font-style: italic; }
