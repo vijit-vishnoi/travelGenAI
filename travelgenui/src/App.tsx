@@ -40,9 +40,9 @@ function App() {
     setLoading(true);
     setError('');
     setItinerary(null);
-
+    const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:4000';
     try {
-      const response = await axios.post('http://localhost:4000/api/generate', {
+      const response = await axios.post(`${API_BASE_URL}/api/generate`,{
         destination,
         start_date: startDate,
         end_date: endDate,
