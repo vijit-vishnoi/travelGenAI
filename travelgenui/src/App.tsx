@@ -151,7 +151,7 @@ function App() {
       {loading && (
         <div className="loading-state">
           <div className="spinner"></div>
-          <p>Contacting local experts in <strong>{destination}</strong>...</p>
+          <p>Planning you perfect trip to <strong>{destination}</strong>...</p>
         </div>
       )}
 

@@ -250,3 +250,24 @@ option {
 .activity-title { font-size: 1.2rem; font-weight: 700; color: #1e293b; margin: 0 0 5px 0; }
 .activity-desc { color: #475569; line-height: 1.6; font-size: 0.95rem; margin: 0 0 15px 0; }
 .location-row { display: flex; align-items: center; gap: 6px; color: #64748b; font-size: 0.9rem; font-weight: 500; border-top: 1px solid #f8fafc; padding-top: 12px;}
+
+.map-section {
+  margin-bottom: 50px;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin-bottom: 20px;
+}
+
+.map-wrapper {
+  height: 400px; 
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+  border: 2px solid white;
+  z-index: 0; 
+}
