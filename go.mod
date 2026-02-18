@@ -1,6 +1,6 @@
 module github.com/vijit-vishnoi/travelgen-ai
 
-go 1.25.6
+go 1.25.0
 
 require (
 	cloud.google.com/go v0.115.0 // indirect
